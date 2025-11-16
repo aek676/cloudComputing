@@ -1,0 +1,14 @@
+# Terraform
+terraform/.terraform/
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/.terraform.lock.hcl
+
+# Credenciales y archivos sensibles
+gcp-identity.json
+*.key
+*.pem
+
+# Otros comunes
+.DS_Store
+*.log
