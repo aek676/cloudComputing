@@ -5,3 +5,17 @@
 # * gcp_bucket_name inicializada con el nombre del bucket a crear en Google Storage
 # **********************
 
+variable "gcp_username" {
+  description = "GCP username"
+  default     = "aek676"
+}
+
+variable "gcp_project" {
+  description = "GCP project"
+  default     = "cc2026-aek676"
+}
+
+variable "gcp_bucket_name" {
+  description = "GCP bucket"
+  default     = "cc2026-aek676-bucket"
+}
