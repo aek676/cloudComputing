@@ -9,4 +9,3 @@ mysql -h "localhost" -u "root" "-pmy_password" < "/home/ubuntu/sginit.sql"
 
 sudo sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo service mysql restart
-

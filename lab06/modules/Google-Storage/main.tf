@@ -19,13 +19,13 @@ resource "google_storage_bucket" "bucket" {
 resource "google_storage_bucket_object" "image1" {
   name   = "el_enigma_de_la_habitacion_622.jpg"
   bucket = google_storage_bucket.bucket.name
-  source = "../../images/el_enigma_de_la_habitacion_622.jpg"
+  source = "${path.root}/images/el_enigma_de_la_habitacion_622.jpg"
 }
 
 resource "google_storage_bucket_object" "image2" {
   name   = "una_historia_de_espana.jpg"
   bucket = google_storage_bucket.bucket.name
-  source = "../../images/una_historia_de_espana.jpg"
+  source = "${path.root}/images/una_historia_de_espana.jpg"
 }
 
 resource "google_storage_object_access_control" "public_rule1" {

@@ -1,7 +1,11 @@
 module "Google-Storage" {
-  source              = "./modules/Google-Storage"
+  source = "./modules/Google-Storage"
 }
 
-module "OpenStack" {
-  source              = "./modules/OpenStack"
+module "Google-Compute" {
+  source = "./modules/Google-Compute"
 }
+
+# module "OpenStack" {
+#   source              = "./modules/OpenStack"
+# }
