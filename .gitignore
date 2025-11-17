@@ -12,3 +12,4 @@ gcp-identity.json
 # Otros comunes
 .DS_Store
 *.log
+lab06/.terraform.tfstate.lock.info
