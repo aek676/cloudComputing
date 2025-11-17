@@ -22,3 +22,13 @@ output "api_external_ip" {
   value       = module.Google-Compute.api_external_ip
   description = "La dirección IP externa de la VM de la API creada por el módulo Google-Compute"
 }
+
+output "app_instance_name" {
+  value       = module.Google-Compute.app_instance_name
+  description = "Nombre de la instancia API creada por el módulo Google-Compute"
+}
+
+output "app_external_ip" {
+  value       = module.Google-Compute.app_external_ip
+  description = "La dirección IP externa de la VM de la API creada por el módulo Google-Compute"
+}

@@ -31,4 +31,6 @@ chmod +x /usr/local/bin/docker-compose
 #   - BOOK_API_HOST=<direccion-ip-fija-instancia-API>  
 # **********************
 
+docker run -d -p 80:80 -e BOOK_API_HOST=${BOOK_API_HOST} ualmtorres/books-app:v0
+
 exit 0

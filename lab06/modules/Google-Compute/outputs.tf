@@ -22,3 +22,13 @@ output "api_external_ip" {
   description = "La dirección IP externa de la VM de la API"
   value       = google_compute_instance.api_vm.network_interface[0].access_config[0].nat_ip
 }
+
+output "app_instance_name" {
+  description = "Nombre de la instancia API"
+  value       = google_compute_instance.app_vm.name
+}
+
+output "app_external_ip" {
+  description = "La dirección IP externa de la VM de la APP"
+  value       = google_compute_instance.app_vm.network_interface[0].access_config[0].nat_ip
+}
