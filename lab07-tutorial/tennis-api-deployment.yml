@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tennis-api
+  namespace: demo
+  labels:
+    app: tennis-api
+spec:
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tennis-api
+  template:
+    metadata:
+      labels:
+        app: tennis-api
+    spec:
+      containers:
+        - name: tennis-api
+          image: ualmtorres/tennis-api:v0
+          ports:
+            - name: http
+              containerPort: 80

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tennis-api
+  namespace: demo
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 80
+    targetPort: http
+  selector:
+    app: tennis-api
+    
+apiVersion: v1
+kind: Service
+metadata:
+  name: tennis-app
+  namespace: demo
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 80
+    targetPort: http
+  selector:
+    app: tennis-app
+
+# Luego hay que hacer un tunnel con minikube para acceder al LoadBalancer desde la máquina local
