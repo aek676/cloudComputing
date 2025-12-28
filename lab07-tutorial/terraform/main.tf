@@ -23,3 +23,19 @@ resource "google_container_node_pool" "primary_nodes" {
     ]
   }
 }
+
+resource "google_filestore_instance" "nfs_server" {
+  name     = "nfs-server"
+  location = google_container_cluster.tutorial_cluster.location
+  tier     = "BASIC_HDD"
+
+  file_shares {
+    capacity_gb = 1024
+    name        = "nfsVolume"
+  }
+
+  networks {
+    network = "default"
+    modes   = ["MODE_IPV4"]
+  }
+}
