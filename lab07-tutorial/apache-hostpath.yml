@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apache-hostpath
+  namespace: demo
+spec:
+  containers:
+  - image: httpd
+    name: apache-hostpath
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "100m"
+      limits:
+        memory: "256Mi"
+        cpu: "500m"
+    volumeMounts:
+    - mountPath: /usr/local/apache2/htdocs/
+      name: myvolume
+  volumes:
+  - name: myvolume
+    hostPath:
+      path: /var/local/apache-vol
+      type: DirectoryOrCreate
