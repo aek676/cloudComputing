@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tennis-app
+  namespace: demo
+  labels:
+    app: tennis-app
+spec:
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tennis-app
+  template:
+    metadata:
+      labels:
+        app: tennis-app
+    spec:
+      containers:
+      - name: tennis-app
+        image: ualmtorres/tennis-app:v0
+        ports:
+        - name: http
+          containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
