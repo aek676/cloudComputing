@@ -6,7 +6,7 @@ spec:
   capacity:
     storage: 1T 
   accessModes:
-    - ReadWriteMany 
+    - ReadWriteMany
   persistentVolumeReclaimPolicy: Recycle
   nfs:
     path: /nfsVolume

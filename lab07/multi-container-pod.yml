@@ -25,7 +25,6 @@ spec:
       limits:
         memory: "256Mi"
         cpu: "250m"
-    # Mount the log directory /var/log using a volume
     volumeMounts:
     - name: varlog
       mountPath: /var/log
@@ -51,14 +50,11 @@ spec:
       limits:
         memory: "512Mi"
         cpu: "500m"
-    # Mount the log directory /var/log using a volume
-    # and the config file
     volumeMounts:
     - name: varlog
       mountPath: /var/log
     - name: config-volume
       mountPath: /fluentd/etc
-  # Declare volumes for log directory and ConfigMap
   volumes:
   - name: varlog
     emptyDir: {}
