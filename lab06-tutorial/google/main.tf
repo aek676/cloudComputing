@@ -11,11 +11,10 @@ resource "google_compute_instance" "tf-vm" {
   tags = ["http"]
 
   metadata = {
-    ssh-keys = "${var.gcp-username}:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "${var.gcp-username}:${trimspace(var.ssh-key)}"
   }
 
-  metadata_startup_script = file("../setup-docker.sh")
-
+  metadata_startup_script = file("${path.module}/setup-docker.sh")
   network_interface {
     network    = google_compute_network.terraform_network.self_link
     subnetwork = google_compute_subnetwork.terraform_subnet.self_link
