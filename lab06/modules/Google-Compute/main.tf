@@ -16,7 +16,7 @@ resource "google_compute_instance" "mysql_vm" {
   }
 
   metadata = {
-    ssh-keys = "${var.gcp_username}:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "${var.gcp_username}:${trimspace(var.ssh_key)}"
   }
 
   metadata_startup_script = file("${path.root}/install_mysql.sh")
@@ -55,7 +55,7 @@ resource "google_compute_instance" "api_vm" {
   }
 
   metadata = {
-    ssh-keys = "${var.gcp_username}:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "${var.gcp_username}:${trimspace(var.ssh_key)}"
   }
 
   metadata_startup_script = templatefile("${path.root}/setup-api-docker.tpl", {
@@ -96,7 +96,7 @@ resource "google_compute_instance" "app_vm" {
   }
 
   metadata = {
-    ssh-keys = "${var.gcp_username}:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "${var.gcp_username}:${trimspace(var.ssh_key)}"
   }
 
   metadata_startup_script = templatefile("${path.root}/setup-app-docker.tpl", {

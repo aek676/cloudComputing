@@ -7,3 +7,8 @@ variable "gcp_username" {
   description = "GCP username"
   default     = "aek676"
 }
+
+variable "ssh_key" {
+  description = "SSH public key"
+  type        = string
+}
