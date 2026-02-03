@@ -17,7 +17,7 @@ variable "gcp_credentials_file" {
   default     = ""
 }
 
-variable "instance_quantity" { 
+variable "instance_quantity" {
   description = "Number of instances to be created"
   default     = 1
 }
@@ -35,4 +35,24 @@ variable "image_name" {
 variable "machine_type" {
   description = "Machine type for instances (e.g., e2-medium)"
   default     = "e2-medium"
+}
+
+variable "gke_cluster_name" {
+  description = "Name of the GKE cluster"
+  default     = "gke-logging-cluster"
+}
+
+variable "gke_location" {
+  description = "Location for GKE Autopilot cluster (region for Autopilot)"
+  default     = "us-central1"
+}
+
+variable "elasticsearch_user" {
+  description = "Elasticsearch username"
+  default     = "elastic"
+}
+
+variable "elasticsearch_password" {
+  description = "Elasticsearch password"
+  default     = "changeme"
 }

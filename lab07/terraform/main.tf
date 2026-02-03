@@ -34,3 +34,16 @@ resource "google_compute_firewall" "elk_rules" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["elk-server"]
 }
+
+resource "google_compute_firewall" "gke_to_elk" {
+  name    = "allow-gke-to-elk"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["9200", "5044"]
+  }
+
+  source_ranges = ["10.0.0.0/8"]
+  target_tags   = ["elk-server"]
+}
